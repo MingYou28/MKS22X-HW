@@ -16,18 +16,28 @@ public class NQueens{
      */
     public boolean solve()
     {
-	return false;
+	return solveH(0);
     }
     
     /**
      *Helper method fr solve. 
      */
-    private boolean solveH(int col)
-    {if (	
-	return false;
-    }
+    private boolean solveH(int col){
+	for(int i=0;i<board.length;i++){
+	    if(board[i][col]==0)
+		{addQueen(i,col);
+		    if(col==board.length-1)                                                                                                                
+			{return true;                                                                                                                                                          			               }
+		    if(solveH(col+1)){
+			return true;}
+		    else{removeQueen(i,col);}
+		}   
+	}
+    return false;
+}
     
     public void printSolution(){
+	System.out.println(toString());
 	/**Print the board like toString, except
 	   all negative numbers, and 0's are replaced with '_'
 	   and all 1's are replaced with 'Q'
@@ -75,22 +85,26 @@ offset++;
 	String ans = "";
 	for(int r = 0; r < board.length; r++){
 	    for(int c = 0; c < board[0].length; c++){
-		ans+= board[r][c]+"\t";
-	    }
+		if(board[r][c]==1){
+		    ans+="Q ";}
+		    else{ans+="_ ";
+		    }
+		}
 	    ans+="\n";
 	}
 	return ans;
     }
-    /*    
+    
     public static void main(String[]args){
-	NQueens b = new NQueens(5);
-        System.out.println(b);
-	b.addQueen(3,0);
-	b.addQueen(0,1);
-        System.out.println(b);
-	b.removeQueen(3,0);
-        System.out.println(b);
+    if(args.length==0)
+	    {
+		throw new IllegalArgumentException("Please specify a size");
+	    }
+	NQueens b = new NQueens(Integer.parseInt(args[0]));
+
+	System.out.println(b.solve());
+	b.printSolution();    
     }
-    */
+    
     
 }
