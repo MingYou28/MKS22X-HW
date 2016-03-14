@@ -89,7 +89,9 @@ import java.util.*;
 	    	if (data[i] < pivotNum){
 		    swap(data,leftTracker, i);
 		    leftTracker+= 1;
-		}}
+		}
+		else if (data[i] > pivotNum){
+		    swap(data,}
 	  
 	    swap(data,right,leftTracker);
 	    return leftTracker;
@@ -98,6 +100,7 @@ import java.util.*;
 	public static int quickselect(int[]data, int k){
 	    return quickselect(data,k,0,data.length -1);
 	}
+
 
     private static int quickselect(int[]data, int k, int left, int right){
 	if (left == right){
@@ -137,6 +140,7 @@ public static void main(String[]args){
     System.out.println("Done: Sorted="+Arrays.equals(d,c));
 }
 }
+
 
 
 
