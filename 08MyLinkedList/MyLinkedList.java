@@ -1,3 +1,4 @@
+/*
 public class MyLinkedList{
     Lnode head;
     int size;
@@ -81,3 +82,6 @@ public class MyLinkedList{
     
     //- returns a list formatted like: [ v1, v2, v3, ... vn-1, vn ] , empty list is just []
 }
+*/
+
+public class Box<t>
