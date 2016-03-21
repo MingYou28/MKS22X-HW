@@ -1,6 +1,9 @@
 public class MyLinkedList{
     Lnode head;
     int size;
+    public MyLinkedList(){
+	head = null;
+	size = 0;
     private class Lnode{
     Lnode next;
     int value;
@@ -21,29 +24,43 @@ public class MyLinkedList{
 	 
     }
     
-    int get(int index){
-    }    
+    public int get(int index){
+	if (index > 0 && index <= size){
+	    Lnode spot = null;
+	    for (int i = 0; i < index; i ++){
+		spot = spot.getNext();}
+	    return spot.getValue();
+	}   
+    }
     //- get the value of the element at the specified index (0 based)
     
-    int set(int index,int newValue){
+    public int set(int index,int newValue){
+	if (index > 0 && index <= size){
+	    Lnode spot = null;
+	    for (int i = 0; i < index; i ++){
+		spot = spot.getNext();}
+	    int hold = spot.getValue();
+	    spot.setValue(newValue);
+	    return hold;
     }
     
     //- change the value of the element at the specified index to the newValue, return the old value
     
-    int size(){
+    public int size(){
+	return size;
     } 
 
     //- return the number of elements in the list
 
-    int remove(int index){
+    public int remove(int index){
     } 
     //- remove the element at the specified index, returns the value removed
 
-    boolean add(int index, int value){    
+    public boolean add(int index, int value){    
     }
     //- insert a new elmeent at the specified index, 0 at the front, size() at the end.
 
-    boolean add(int value){
+    public boolean add(int value){
 	if(head == null){
 	    head = new LNode(value);
 	}else{
@@ -60,12 +77,13 @@ public class MyLinkedList{
     
     //- adds to end
     
-    int indexOf(int value){
+    public int indexOf(int value){
+        
     } 
     
     //- returns the index of the 1st occurrence of the value in the linked list, -1 if not found.
     
-    toString(){
+    public String toString(){
 	String ans = "[";
 	LNode p = head;
 	while(p != null){
@@ -80,4 +98,4 @@ public class MyLinkedList{
 } 
     
     //- returns a list formatted like: [ v1, v2, v3, ... vn-1, vn ] , empty list is just []
-}
+
