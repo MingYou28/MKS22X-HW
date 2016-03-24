@@ -194,6 +194,13 @@ public class Driver{
             }
         }
     }
+{
+	//Iterator
+      Iterator i = linkedlist.iterator();
+      ans = 0;
+      while (i.hasNext()) {
+	  ans += i.next();
+      }
 }
     }
     
