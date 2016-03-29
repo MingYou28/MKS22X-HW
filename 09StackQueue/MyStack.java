@@ -1,16 +1,16 @@
 import java.util.*;
 public class MyStack<T> extends MyLinkedList<T>{
-    private MyLinkedList<T> LinkedStack;
+    private MyLinkedList<T> data;
      /**
      * Adds the given item to the top of the stack.
      */
 
     public MyStack(){
-	LinkedStack = new MyLinkedList<T>();
+	data = new MyLinkedList<T>();
     }
     
     public void push(T item){
-	LinkedStack.add(0,item);
+	data.add(0,item);
     }
 
     /**
@@ -18,10 +18,10 @@ public class MyStack<T> extends MyLinkedList<T>{
      * @exception java.util.NoSuchElementException if the queue is empty.
      */
     public T pop(){
-	if (LinkedStack.size() == 0) {
+	if (data.size() == 0) {
 	    throw new NoSuchElementException();
 	}
-	return LinkedStack.remove(0);
+	return data.remove(0);
     }
 
     /**
@@ -29,23 +29,23 @@ public class MyStack<T> extends MyLinkedList<T>{
      * @exception java.util.NoSuchElementException if the queue is empty.
      */
     public  T peek(){
-	if (LinkedStack.size() == 0){
+	if (data.size() == 0){
 	    throw new NoSuchElementException();
 	}
-	return LinkedStack.get(0);
+	return data.get(0);
     }
 
     /**
      * Returns the number of items currently in the stack.
      */
     public int size(){
-	return LinkedStack.size();
+	return data.size();
     }
 
     /**
      * Returns whether the stack is empty or not.
      */
     public boolean isEmpty(){
-	return (LinkedStack.size() == 0);
+	return (data.size() == 0);
     }
 }
