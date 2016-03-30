@@ -48,4 +48,11 @@ public class MyStack<T> extends MyLinkedList<T>{
     public boolean isEmpty(){
 	return (data.size() == 0);
     }
+
+    public static void main(String[]args){
+	MyStack<String> tester = new MyStack<String>();
+	tester.push("nodiea");
+	tester.push(1);
+	System.out.println(tester);
+    }
 }
