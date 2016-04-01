@@ -24,7 +24,7 @@ public class MyLinkedList<T> implements Iterable<T>{
 	    return value.toString();
 	}
     }
-
+    //LNode prev;
     LNode head;
     LNode tail;
     int size;
@@ -86,6 +86,15 @@ public class MyLinkedList<T> implements Iterable<T>{
 	size++;
 	return true;
     }
+
+    /*
+add use reference to prev to make each one reference the one before it. so add
+will just add one to the end, make the previous one reference it and make it 
+reference the previous as opposed to null. 
+removing will make the references skip over.
+add (x,y) should make the references redirect themselves to the new ly added 
+element
+     */
     public T remove(int index){
 	if(index < 0 || index >= size()){
 	    throw new IndexOutOfBoundsException("Index: "+index+", Size: "+size());
@@ -163,4 +172,7 @@ public class MyLinkedList<T> implements Iterable<T>{
 	}
 	return -1;
     }
+    
 }
+
+
