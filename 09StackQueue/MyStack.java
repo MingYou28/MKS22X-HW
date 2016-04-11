@@ -50,9 +50,12 @@ public class MyStack<T> extends MyLinkedList<T>{
     }
 
     public static void main(String[]args){
-	MyStack<String> tester = new MyStack<String>();
-	tester.push("nodiea");
-	tester.push(1);
-	System.out.println(tester);
+	MyStack<String> Stringtester = new MyStack<String>();
+	System.out.println("add noidea");
+	Stringtester.push("nodiea");
+	System.out.println(Stringtester.peek());
+	System.out.println("add pookie");
+	Stringtester.push("pookie");
+	System.out.println(Stringtester.peek());
     }
 }
