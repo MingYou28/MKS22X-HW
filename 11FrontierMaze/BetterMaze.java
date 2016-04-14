@@ -1,19 +1,17 @@
 import java.util.*;
 import java.io.*;
 
-public class BetterMaze {
+public class BetterMaze{
     private class Node{
-	int x,y;
-	Node previous;
-	private Node(int r, int c, ){
-	}
+	private Node prev;
+	public int[]
     }
 
     private char[][] maze;
-    private int[] solution;
-    private int startRow,startCol;
+    private int[]    solution;
+    private int      startRow,startCol;
     private Frontier<Node> placesToGo;
-    private boolean animate;//default to false
+    private boolean  animate;//default to false
 
    /**return a COPY of solution.
      *This should be : [x1,y1,x2,y2,x3,y3...]
@@ -28,42 +26,36 @@ public class BetterMaze {
 	return new int[1];
     }    
 
-    
+
     /**initialize the frontier as a queue and call solve
-     **/
-    public boolean solveBFS(){  
-        /** IMPLEMENT THIS **/ 
-	placesToGo = new Frontier<Node>();
+    **/
+    public boolean solveBFS(){
+	placesToGo = new FrontierQueue<Node>();
+	return solve();
+        /** IMPLEMENT THIS **/      
 
-
-       
-	return false;
     }   
-    
-    
-    /**initialize the frontier as a stack and call solve
+
+
+   /**initialize the frontier as a stack and call solve
     */ 
-    public boolean solveDFS(){  
+    public boolean solveDFS(){
+	placesToGo = new FrontierStack<Node>();
         /** IMPLEMENT THIS **/  
-	placesToGo = new Frontier<Node>();
-	return false;
+	return solve();
     }    
-    
-    /**Search for the end of the maze using the frontier. 
+
+   /**Search for the end of the maze using the frontier. 
       Keep going until you find a solution or run out of elements on the frontier.
-   **/
+    **/
     private boolean solve(){  
-        /** IMPLEMENT THIS **/ 
-	while (placesToGo.hasNext()){
-	}
- 
+        /** IMPLEMENT THIS **/  
 	return false;
     }    
      
-    /**mutator for the animate variable  **/
-    public void setAnimate(boolean b){  
-	/** IMPLEMENT THIS **/ 
-    }    
+   /**mutator for the animate variable  **/
+    public void setAnimate(boolean b){
+	animate = b;/** IMPLEMENT THIS **/ }    
 
 
     public BetterMaze(String filename){
@@ -159,7 +151,7 @@ public class BetterMaze {
 	}else{
 	    return ans + color(37,40) + "\n";
 	}
-    } 
+    }
     
 
 
