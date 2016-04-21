@@ -1,12 +1,18 @@
 public class BSTree<T extends comparable<T>>{
+    
     private class Node{
 	T data;
 	Node left;
 	Node right;
- // set/get: data/left/right
 	
-	
- //real methods here
+	// set/get: data/left/right
+	public void setChildren(){
+	}
+	public getLChildren(){
+	}
+	public getRChildren(){
+	}
+	//real methods here
 	public int height(){ 
 	    return 0;
 	}
@@ -20,7 +26,7 @@ public class BSTree<T extends comparable<T>>{
 	}
 	
     }
-
+    
     private Node root;
     
     //OUTER methods here are wrapper methods for the root
@@ -38,6 +44,7 @@ public class BSTree<T extends comparable<T>>{
 	return "";
     }
     public boolean contains(T value){
+	if (value 
 	//check for empty before you do things with root.
 	return false;
     }
