@@ -1,27 +1,103 @@
-public class BSTree<T extends comparable<T>>{
+public class BSTree<T extends Comparable<T>>{
     
     private class Node{
 	T data;
 	Node left;
 	Node right;
+
+	public Node(T info) {
+	    data = info;
+	}
 	
 	// set/get: data/left/right
-	public void setChildren(){
+	public void setL(Node d){
+	    left = d;
 	}
-	public getLChildren(){
+	public Node getL(){
+	    return left;
 	}
-	public getRChildren(){
+	public void setR(Node d){
+	    right = d;
 	}
+	public Node getR(){
+	    return right;
+	}
+	public T getData(){
+	    return data;
+	}
+	public void setData(T d){
+	    data = d;
+	}
+	
 	//real methods here
 	public int height(){ 
-	    return 0;
+	    if(left == null && right == null) {
+		return 1;
+	    }
+	    else if(left == null) {
+		return 1 + right.height();
+	    }
+	    else if(right == null) {
+		return 1 + left.height();
+	    }
+	    else{
+		return 1 + Math.max(left.height() , right.height());
+	    }
 	}
-	public void add(T value){
+	public void add(T nvalue){
+	    if ( data == null){
+		data = nvalue;}
+	    else {
+		if(data.compareTo(nvalue) < 0){
+		    if(right != null){
+			right.add(nvalue);
+		    }
+		    else{
+			setR(new Node(nvalue));
+		    }
+		}
+		else{
+		    if(left != null){
+			left.add(nvalue);
+		    }
+		    else{
+			setL(new Node(nvalue));
+		    }
+		}   
+	    }
 	}
 	public String toString(){
-	    return "";
+	    String ans = "";
+	    if (data == null){
+		ans += "_";
+	    }
+	    else if (right == null|| left == null){
+		ans += "_";
+	    }
+	    else {
+		ans += "" + data + " "+ left.toString()+ " " + " " + right.toString();
+	    }
+
+	    return ans;
+	    
+	    
 	}
-	public boolean contains(T value){
+		
+    
+	public boolean contains(T nvalue){
+	    if (data == null){
+		return false;
+	    }
+	    else if(data.compareTo(nvalue) == 0){
+		return true;
+	    }
+	    if(data.compareTo(nvalue) < 0 && right !=null){
+		return right.contains(nvalue);
+	    }
+	    if(data.compareTo(nvalue) > 0 && left !=null){
+		return left.contains(nvalue);
+	}
+	    
 	    return false;
 	}
 	
@@ -30,22 +106,45 @@ public class BSTree<T extends comparable<T>>{
     private Node root;
     
     //OUTER methods here are wrapper methods for the root
-    public getHeight(){
+    public int getHeight(){
 	//call the root's methods
 	//check for empty first!
-	return root.height();
+	if (root == null){
+	    return 0;
+	}
+	else {
+	    return root.height();
+	}
     }
     
     public void add(T value){
-	//check for empty before you do things with root.
+	if (root == null){
+	    root = new Node(value);}
+	else {
+	    root.add(value);
+	    //check for empty before you do things with root.
+	}
     }
     public String toString(){
 	//check for empty before you do things with root.
-	return "";
+	if (root == null){
+	    return "";
+	}
+	else {
+	    return root.toString();
+	}
     }
     public boolean contains(T value){
-	if (value 
+        if (root == null){
+	    return false;
+	}
+	else {
+	    return root.contains(value);
+	}
+    
+	    
 	//check for empty before you do things with root.
-	return false;
+        
     }
 }
+
