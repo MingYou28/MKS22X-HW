@@ -117,11 +117,11 @@ public class BSTree<T extends Comparable<T>>{
 	}
     }
     
-    public void add(T value){
+    public void add(T nvalue){
 	if (root == null){
-	    root = new Node(value);}
+	    root = new Node(nvalue);}
 	else {
-	    root.add(value);
+	    root.add(nvalue);
 	    //check for empty before you do things with root.
 	}
     }
@@ -134,12 +134,12 @@ public class BSTree<T extends Comparable<T>>{
 	    return root.toString();
 	}
     }
-    public boolean contains(T value){
+    public boolean contains(T nvalue){
         if (root == null){
 	    return false;
 	}
 	else {
-	    return root.contains(value);
+	    return root.contains(nvalue);
 	}
     
 	    
