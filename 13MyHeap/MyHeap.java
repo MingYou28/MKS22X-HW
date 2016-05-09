@@ -1,4 +1,5 @@
 
+
 import java.util.*;
 @SuppressWarnings("unchecked")
 public class MyHeap <T extends Comparable<T>>{
@@ -32,6 +33,7 @@ public class MyHeap <T extends Comparable<T>>{
                      shifted to the correct spot.
                      -data is a valid heap
    **/
+/**
     private void pushUp(int k){
 
     }
@@ -61,3 +63,14 @@ public class MyHeap <T extends Comparable<T>>{
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
