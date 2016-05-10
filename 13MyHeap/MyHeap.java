@@ -27,6 +27,7 @@ public class MyHeap <T extends Comparable<T>>{
 
     }
 
+    private void pushDown(int k){
   /**pushDown
       precondition: data is a heap with at most one item
       out of place (element at k)
@@ -34,21 +35,36 @@ public class MyHeap <T extends Comparable<T>>{
                      shifted to the correct spot.
                      -data is a valid heap
    **/
-    private void pushDown(int k){
-
+	if(k*2+1 <= size){
+	    if(compare(data[k*2], data[k*2+1])){
+		swap(k, k*2);
+		pushDown(k*2);
+	    } else {
+		swap(k, k*2+1);
+		pushDown(k*2+1);
+	    }
+	} else {
+	    if (k * 2 <= size){
+		swap(k, k*2);
+	    }
+	}
     }
-
- /**pushUp
-      precondition: data is a heap with at most one item
-      out of place (element at k)
-      postconditions:-the element at index k has been 
-                     shifted to the correct spot.
-                     -data is a valid heap
-   **/
-
+    
     private void pushUp(int k){
-
-    }
+	
+	/**pushUp
+	   precondition: data is a heap with at most one item
+	       out of place (element at k)
+	       postconditions:-the element at index k has been 
+	       shifted to the correct spot.
+	       -data is a valid heap
+	**/
+	
+	if (k > 1 && compare(data[k],data[k/2])){
+	    swap(k, k/2);
+	    pushUp(k/2);
+	}
+	}
     private void heapify(){
 	for (int i = size / 2; i > 0; i --){
 	    pushDown(i);
@@ -57,11 +73,10 @@ public class MyHeap <T extends Comparable<T>>{
     public T delete(){
 	if (size == 0){
 	    throw new NoSuchElementException();}
-	T new = data[1];
+	temp T = data[1];
 	data[1] = data[size];
 	pushDown(1);
 	return temp;
-
     }
     public void add(T x){
 	if (size == data.length - 1){
@@ -85,9 +100,6 @@ public class MyHeap <T extends Comparable<T>>{
 	}
 	return temp;
     }
-    
-   
-
 }
 
 

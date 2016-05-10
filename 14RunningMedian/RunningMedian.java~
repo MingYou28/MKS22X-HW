@@ -1,0 +1,10 @@
+public class RunningMedian{
+    public RunningMedian(){
+
+    }
+    public double getMedian(){
+
+    }
+    public void add(Integer x){
+
+    }
