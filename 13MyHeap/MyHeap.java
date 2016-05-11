@@ -19,14 +19,33 @@ public class MyHeap <T extends Comparable<T>>{
 	heapify();
 
     }
-     //do this last
+    //do this last
     public MyHeap(boolean isMax){
-
+	size = 0;
+	data = (T[])new Comparable[2];
+	isMax = isMax;
     }
+
+    
     public MyHeap(T[] array, boolean isMax){
-
+	size = array.length;
+	data = array;
+	isMax = isMax;
+	heapify();
+	
     }
-
+public boolean compare(T data1, T data2){
+	if(isMax){
+	    return data1.compareTo(data2) > 0;
+	} else {
+	    return data2.compareTo(data1) > 0;
+	}
+    }
+    public void swap(int i, int j){
+	T temp = data[j];
+	data[j] = data[i];
+	data[i] = temp;
+    }
     private void pushDown(int k){
   /**pushDown
       precondition: data is a heap with at most one item
@@ -73,7 +92,7 @@ public class MyHeap <T extends Comparable<T>>{
     public T delete(){
 	if (size == 0){
 	    throw new NoSuchElementException();}
-	temp T = data[1];
+	T temp = data[1];
 	data[1] = data[size];
 	pushDown(1);
 	return temp;
@@ -96,9 +115,9 @@ public class MyHeap <T extends Comparable<T>>{
     public String toString(){
 	String tree = "";
 	for (int i = 1; i <= size; i ++){
-	    temp += heap[i] + " ";
+	    tree += data[i] + " ";
 	}
-	return temp;
+	return tree;
     }
 }
 
