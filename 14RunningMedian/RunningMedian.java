@@ -1,9 +1,14 @@
 public class RunningMedian{
-2 heaps 1 small 1 large
+    //2 heaps 1 small 1 large
+    private MyHeap<Integer>mins;
+    private MyHeap<Integer>maxes;
+    
     public RunningMedian(){
 	/**
 	   Create an empty running median set
 	**/
+	mins = new Heap<>();
+	max = new MyHeap<>(false);
     }
     public double getMedian(){
 	/**
